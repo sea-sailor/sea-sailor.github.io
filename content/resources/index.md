@@ -14,8 +14,8 @@ In the following, we provide important links for you to refer to our opensource 
 
 
 {{< button href="https://arxiv.org/abs/2404.03608" label="PAPER" external=true >}}
-{{< button href="https://github.com/sail-sg/sailor-llm" label="GITHUB" external=true >}}
-{{< button href="https://huggingface.co/collections/sail/sailor-65e19a749f978976f1959825" label="HUGGING FACE" external=true >}}
+{{< button href="https://github.com/sail-sg/sailor2" label="GITHUB" external=true >}}
+{{< button href="https://huggingface.co/collections/sail/sailor2-language-models-674d7c9e6b4dbbd9a869906b" label="HUGGING FACE" external=true >}}
 
 
 ## Quick Start
@@ -23,20 +23,22 @@ In the following, we provide important links for you to refer to our opensource 
 It is simple to use Sailor models through Hugging Face Transformers. Below is a demo usage for a quick start:
 
 ```python
+import torch
 from transformers import AutoModelForCausalLM, AutoTokenizer
 device = "cuda"
 
 model = AutoModelForCausalLM.from_pretrained(
-    'sail/Sailor-14B-Chat',
-    torch_dtype="auto",
+    'sail/Sailor2-20B-Chat',
+    torch_dtype=torch.bfloat16,
     device_map="auto"
 )
 
-tokenizer = AutoTokenizer.from_pretrained('sail/Sailor-14B-Chat')
+tokenizer = AutoTokenizer.from_pretrained('sail/Sailor2-20B-Chat')
 system_prompt= \
-'You are an AI assistant named Sailor created by Sea AI Lab. \
-As an AI assistant, you need to answer a series of questions next, which may include languages such as English, Chinese, Thai, Vietnamese, Indonesian, Malay, and so on. \
-Your answer should be friendly, unbiased, faithful, informative and detailed.'
+'You are an AI assistant named Sailor2, created by Sea AI Lab. \
+As an AI assistant, you can answer questions in English, Chinese, and Southeast Asian languages \
+such as Burmese, Cebuano, Ilocano, Indonesian, Javanese, Khmer, Lao, Malay, Sundanese, Tagalog, Thai, Vietnamese, and Waray. \
+Your responses should be friendly, unbiased, informative, detailed, and faithful.'
 
 prompt = "Beri saya pengenalan singkat tentang model bahasa besar."
 # prompt = "Hãy cho tôi một giới thiệu ngắn gọn về mô hình ngôn ngữ lớn."
