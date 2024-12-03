@@ -71,7 +71,7 @@ params:
     disable_fingerprinting: false
     disable_scroll_bar_style: false
 
-    favicon: /img/sailor-logo.png
+    favicon: /img/sailor_logo_trans.png
 
   label:
     text: "Sailor"
