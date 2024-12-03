@@ -37,7 +37,7 @@ show_word_count: true
 #   blur: false
 ---
 {{< button href="https://github.com/sail-sg/sailor2" label="GITHUB" external=true >}}
-{{< button href="https://huggingface.co/collections/sail/sailor-65e19a749f978976f1959825" label="HUGGING FACE" external=true >}}
+{{< button href="https://huggingface.co/collections/sail/sailor2-language-models-674d7c9e6b4dbbd9a869906b" label="HUGGING FACE" external=true >}}
 {{< button href="https://huggingface.co/spaces/sail/Sailor2-20B-Chat" label="DEMO" external=true >}}
 {{< button href="https://huggingface.co/sailor2" label="COMMUNITY" external=true >}}
 
@@ -53,11 +53,11 @@ By addressing the growing demand for diverse, robust, and accessible language mo
 
 We evaluate our models on several benchmarks, including [IndoCutlure](https://arxiv.org/abs/2404.01854), [TydiQA](https://arxiv.org/abs/2003.05002), Meta Thai MMLU, [M3Exam](https://arxiv.org/abs/2306.05179), VMLU, Tatabahasa, FLORES-200, and XCOPA. The results of TydiQA, M3Exam, FLORES-200 and XCOPA are obtained from our previously released evaluation suite [SailCompass](https://github.com/sail-sg/sailcompass). The results of Meta Thai MMLU are from the [LightEval](https://github.com/huggingface/lighteval), and others are obtained from the evaluation scripts shared by the community members. More evaluation details will be shared in our upcoming paper.
 
-![20B Performance](/img/sailor2/sailor2_base_20b.jpg)
+![20B Performance](/img/sailor2/sailor2_20b_base.jpg)
 
 Compared to other advanced multilingual models like Qwen2.5-32B, Gemma2-27B, Llama3.1-70B, and Aya-Expanse-32B, our flagship 20B model demonstrates comparable or superior performance on languages such as Indonesian, Thai, Vietnamese, Malay, and Javanese. It excels in machine translation tasks and multilingual reasoning, including benchmarks like XCOPA. Most notably, due to the inclusive design of the Sailor2 models, our 20B model significantly outperforms others in extremely low-resource languages, such as M3Exam-Javanese, achieving an improvement of +14.6 over Qwen2.5-32B.
 
-![8B Performance](/img/sailor2/sailor2_base_8b.jpg)
+![8B Performance](/img/sailor2/sailor2_8b_base.jpg)
 
 The Sailor2-8B model stands out as the best multilingual model for SEA languages in the < 10B category, outperforming all other open-access language models in general.
 
