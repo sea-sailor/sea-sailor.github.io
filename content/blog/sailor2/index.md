@@ -41,6 +41,7 @@ show_word_count: true
 {{< button href="https://huggingface.co/spaces/sail/Sailor2-20B-Chat" label="DEMO" external=true >}}
 {{< button href="https://huggingface.co/sailor2" label="COMMUNITY" external=true >}}
 
+
 # Introduction
 
 In this blog, we introduce **Sailor2**, a community-driven initiative that brings cutting-edge multilingual language models to **South-East Asia (SEA)**. Our research highlights a strong demand for models in the **8B** and **20B** parameter range for production use, alongside a **1B** model for specialized applications, such as speculative decoding and research purposes. These models, released under the **Apache 2.0 license**, provide enhanced accessibility to advanced language technologies across the region.
@@ -96,11 +97,12 @@ In practice, the approach draws inspiration from the method proposed by [LlamaPr
 
 ## Data Cleaning and Deduplication
 
-We use [sailcraft](https://github.com/sail-sg/sailcraft) to do the data cleaning and deduplication. Besides the near deduplication, exact deduplication and heuristics-based data cleaning, we also introduce URL deduplication to remove nearly 50% texts from the dataset, and frequent line removal introduced by Llama 3. We find both techniques are effective and can remove noisy information.
+We leveraged [sailcraft](https://github.com/sail-sg/sailcraft) for comprehensive data processing, employing multiple deduplication techniques including near and exact deduplication, heuristics-based cleaning, URL deduplication, and frequent line removal. During URL deduplication, we prioritized documents with more content, effectively reducing total tokens by nearly 50%. As for the frequent line removal, following the [Llama3 approach](https://arxiv.org/abs/2407.21783), we removed lines appearing more than 5 times in 10M document buckets, successfully eliminating nearly 5% of total tokens—most of which were determined to be meaningless content.
+
 
 ## Two-Stage Training
 
-We adopt the two-stage pre-training approach introduced in the MiniCPM paper. In the first stage, we use comprehensive datasets and a relatively high learning rate (`1e-4`), while in the second stage, we focus on high-quality tokens with a smaller learning rate (`1e-5`). 
+We adopt the two-stage pre-training approach introduced in the [MiniCPM paper](). In the first stage, we use comprehensive datasets and a relatively high learning rate (`1e-4`), while in the second stage, we focus on high-quality tokens with a smaller learning rate (`1e-5`). 
 
 Drawing from the forgetting rules outlined in the Sailor paper, we introduce high-resource languages during the first stage (such as English, Chinese, Vietnamese, Indonesian, Thai, Malay, Burmese, Tagalog, and Khmer). In the second stage, we transition to both high-resource and low-resource languages (including Cebuano, Lao, Javanese, Waray, Sundanese, and Ilocano). This two-stage approach allows automatic data mixture in the first stage, while allowing us to incorporate high-quality tokens from low-resource languages in the second stage without rescheduling the mixing ratios.
 
@@ -204,6 +206,30 @@ generated_ids = [
 
 response = tokenizer.batch_decode(generated_ids, skip_special_tokens=True)[0]
 print(response)
+```
+
+## Limited Free API Service
+
+
+We also offer a limited free API service for Sailor2-20B-Chat in collaboration with [Float16.cloud](https://blog.float16.cloud/). You can access the API using the following details:
+
+```shell
+curl -X POST "https://api.float16.cloud/v1/chat/completions" \
+  -H "Content-Type: application/json" \
+  -H "Authorization: Bearer sailor2" \
+  -d '{
+    "model": "sailor2-20b-chat",
+    "messages": [
+      {
+        "role": "system",
+        "content": "You are an AI assistant named Sailor2, created by Sea AI Lab. As an AI assistant, you can answer questions in English, Chinese, and Southeast Asian languages such as Burmese, Cebuano, Ilocano, Indonesian, Javanese, Khmer, Lao, Malay, Sundanese, Tagalog, Thai, Vietnamese, and Waray. Your responses should be friendly, unbiased, informative, detailed, and faithful."
+      },
+      {
+        "role": "user",
+        "content": "สวัสดี"
+      }
+    ]
+  }'
 ```
 
 ## Acknowledgement
