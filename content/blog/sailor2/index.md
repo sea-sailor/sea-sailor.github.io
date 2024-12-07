@@ -46,7 +46,7 @@ show_word_count: true
 
 In this blog, we introduce **Sailor2**, a community-driven initiative that brings cutting-edge multilingual language models to **South-East Asia (SEA)**. Our research highlights a strong demand for models in the **8B** and **20B** parameter range for production use, alongside a **1B** model for specialized applications, such as speculative decoding and research purposes. These models, released under the **Apache 2.0 license**, provide enhanced accessibility to advanced language technologies across the region.
 
-Sailor2 builds upon the foundation of the awesome multilingual model **Qwen2.5** ([Learn more here](https://qwenlm.github.io/blog/qwen2.5-llm/)) and is continuously pre-trained on ~500B tokens to support 15 languages better with a unified model. These languages include: English, Chinese, Burmese 🇲🇲, Cebuano🇵🇭, Ilocano🇵🇭, Indonesian🇮🇩, Javanese🇮🇩, Khmer🇰🇭, Lao🇱🇸, Malay🇲🇾, Sundanese🇮🇩, Tagalog🇵🇭, Thai🇹🇭, Vietnamese🇻🇳 and Waray🇵🇭. 
+Sailor2 builds upon the foundation of the awesome multilingual model **Qwen2.5** ([Learn more here](https://qwenlm.github.io/blog/qwen2.5-llm/)) and is continuously pre-trained on ~500B tokens to support 15 languages better with a unified model. These languages include: English, Chinese, Burmese 🇲🇲, Cebuano🇵🇭, Ilocano🇵🇭, Indonesian🇮🇩, Javanese🇮🇩, Khmer🇰🇭, Lao🇱🇦, Malay🇲🇾, Sundanese🇮🇩, Tagalog🇵🇭, Thai🇹🇭, Vietnamese🇻🇳 and Waray🇵🇭. 
 
 By addressing the growing demand for diverse, robust, and accessible language models, Sailor2 seeks to *serve the underserved* in SEA areas with open, inclusive, and accessible multilingual LLMs.
 
