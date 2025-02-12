@@ -64,7 +64,7 @@ The Sailor2-8B model stands out as the best multilingual model for SEA languages
 
 ![Chat Performance](/img/sailor2/sailor2_chat_perf.jpg)
 
-We also evaluated our chat models using the translated WildBench, [Sea-WildBench](https://huggingface.co/datasets/sailor2/sea-wildbench), a challegning benchmark for chat models. As shown, the win rate of Sailor2-20B-Chat against GPT-4o-0806 on SeaWildBench is nearly 50%, demonstrating that Sailor2-20B-Chat performs at a GPT-4o level for local chat scenarios.
+We also evaluated our chat models using the translated WildBench, [Sea-WildBench](https://huggingface.co/datasets/sailor2/sea-wildbench), a challenging benchmark for chat models. As shown, the win rate of Sailor2-20B-Chat against GPT-4o-0806 on SeaWildBench is nearly 50%, demonstrating that Sailor2-20B-Chat performs at a GPT-4o level for local chat scenarios.
 
 
 ## Continual Pre-training
